@@ -48,10 +48,10 @@ def generate_network_info():
             "enable_ipv6": network_attributes.get("EnableIPv6", False),
             "internal": network_attributes.get("Internal", False),
             "ipam": {
-                "driver": network_attributes.get("IPAM", {}).get("Driver", "default"),
+                "driver": network_attributes.get("IPAMConfig", {}).get("Driver", "default"),
                 "config": [
                     {key.lower(): value for key, value in config.items()}
-                    for config in network_attributes.get("IPAM", {}).get("Config", [])
+                    for config in network_attributes.get("IPAMConfig", {}).get("Config", [])
                 ],
             },
         }
